@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-sage: #879780;
+  --color-ivory: #F8F5ED;
+  --color-cream: #EAE5D9;
+  --color-olive: #626F52;
+  --color-forest: #26372D;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-ivory);
+    color: var(--color-forest);
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--color-ivory);
+    color: var(--color-forest);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.02em;
+    color: var(--color-forest);
+  }
+
+  /* Accessible focus indicators per design-system.md */
+  :focus-visible {
+    outline: 2px solid var(--color-sage);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .luxury-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 1280px;
+  }
+
+  @media (min-width: 640px) {
+    .luxury-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .luxury-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .editorial-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+    color: var(--color-olive);
+  }
+
+  .luxury-divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(98, 111, 82, 0.2);
+  }
+
+  .nav-light-link {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(248, 245, 237, 0.84);
+    transition: color 200ms ease-out;
+  }
+
+  .nav-light-link:hover {
+    color: var(--color-ivory);
+  }
+
+  .mobile-nav-link {
+    border-bottom: 1px solid rgba(98, 111, 82, 0.2);
+    padding: 0.625rem 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+}
+
+/* Reduced-motion overrides per design-system.md §12 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
